@@ -10,4 +10,9 @@ class TaskBase(BaseModel):
     titulo: str                                                 # Campo obligatorio
     descripcion: Opctional[str] = None  # Campo opcional
     estado: Optional[str] = "pendiente" # Valor por defecto
-    
+
+
+    # Esquema para crear una nueva tarea 
+    class TaksCreate(TaksCreate):
+        id_usuario: int
+        
