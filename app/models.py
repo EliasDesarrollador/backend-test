@@ -14,3 +14,7 @@ class User(Base):
     descripcion = Column(String ) #Descripcion
     estado = Column(String, default ="pendiente") # Estado por  defecto
     id_usuario = Column(Integer, ForeignKey("users.id")) # Clave foranea(usuario dueno) 
+
+    #Relacion inversa con usuarios 
+    usuario = relarionship("User", back_populates="tareas")
+    
