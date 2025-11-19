@@ -34,3 +34,11 @@ def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
                detail= "El email  ya esta registrado "
           )
      
+     # Creamos  un objeto  UserModel 
+     new_user = UserModel(
+              nombre=user_data.nombre,
+              email =user_data.email,
+              contrasena= user_data.contrasena      # En prueba guardar si hash 
+              
+
+     )
