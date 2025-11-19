@@ -9,3 +9,12 @@ from app.schemas import UserCreate , User
 from app.models import User as UserModel
 #Dependencias DB 
 from app.database import get_db
+
+
+#Creamos el router  especifico  para  usuarios
+router = APIRouter(
+    prefix="/users",      #Todas las rutas tendran /users al inicio 
+    tags=["Usuarios"]    # para documentacion de  Swagger
+)
+
+
