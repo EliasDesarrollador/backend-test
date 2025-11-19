@@ -36,4 +36,11 @@ class UserBase(BaseModel):
 class User(UserBase):
     contrasena: str
 
-    
+# Esquema para devolver un usuario  con sus tareas 
+class User(UserBase):
+    id: int
+    tareas: List[Task] = []
+
+    class Config: 
+        orm_mode = True
+        
