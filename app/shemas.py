@@ -32,4 +32,8 @@ class UserBase(BaseModel):
     nombre: str
     email: EmailStr # Validar que el email sea correcto 
 
+#Esquema para  devolver  un usuario con sus tareas 
+class User(UserBase):
+    contrasena: str
+
     
