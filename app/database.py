@@ -32,9 +32,8 @@ Base = declarative_base()
 #Dependencia que permite obtener las sesion  de base de datos 
 #(se usa dentro  de los endpoints)
 def get_db():
-         db = SessionLocal() # Crea  una sesion nueva
-         try:
-              yield db  # la devuelve para usarla 
-         finally:
-                db.close() # Cierra la conexion al terminar 
->>>>>>> 235f8018ad1ec46658bbfe58cc1b94b415f76bc6
+    db = SessionLocal() # Crea  una sesion nueva
+    try:
+        yield db  # la devuelve para usarla 
+    finally:
+        db.close() # Cierra la conexion al terminar 
