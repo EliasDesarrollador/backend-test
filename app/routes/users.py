@@ -47,3 +47,16 @@ def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
      db.refresh(new_user)  # Actualiza  el objeto  con el ID
 
      return new_user
+
+
+#   -----------------------------------------------------------
+#                        LISTAR USUARIO     
+# ------------------------------------------------------------
+
+@router .get("/",  response_models=list[User])
+def get_user(user_id: int, db: Session  = Depend(get_db)):
+       # Busca el usuario por ID 
+       user = db.query(UserModel).all()
+       return users
+
+
