@@ -18,3 +18,19 @@ router = APIRouter(
 )
 
 
+#   -----------------------------------------------------------
+#                         CREAR USUARIO     
+# ------------------------------------------------------------
+
+@router .post("/", response_model=User)
+def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
+
+
+     # Verifiacmos  si el email ya existe en la db 
+     user_exits = db.query(UserModel).filter(UserModel.email == user_data.email).first()
+     if user_exits: 
+          raise HTTPException(
+               status_code =400,
+               detail= "El email  ya esta registrado "
+          )
+     
