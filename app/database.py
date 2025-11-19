@@ -11,3 +11,10 @@ SQALCHEMY_DATABASE_URL ="sqlite:///./test.db"
 engine = create_engine(
     SQALCHEMY_DATABASE_URL, connect_args=("check_same_thread": False)
 )
+
+# Creamos una clase para manejar  las sesiones (conexiones) a la base 
+SessionLocal = sessionmaker(autocommit=False, autoFlush=False, bind=engine)
+
+#Clase base para los modelos (tablas)
+Base = declarative_base()
+
