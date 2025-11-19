@@ -23,4 +23,13 @@ class TaskBase(BaseModel):
 
             class Config: 
                 orm_mode = True  # Permite convertir  objetos SQLAlchemy  a JSON 
-                
+
+
+# ------------SCHEMAS DE USUARIOS ---------------
+
+#Esquema  base : campos comunes del usuario 
+class UserBase(BaseModel):
+    nombre: str
+    email: EmailStr # Validar que el email sea correcto 
+
+    
