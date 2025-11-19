@@ -39,6 +39,11 @@ def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
               nombre=user_data.nombre,
               email =user_data.email,
               contrasena= user_data.contrasena      # En prueba guardar si hash 
-              
-
      )
+
+     # Guardamos en la base de datos  
+     db.add(new_user)
+     db.commit()
+     db.refresh(new_user)  # Actualiza  el objeto  con el ID
+
+     return new_user
