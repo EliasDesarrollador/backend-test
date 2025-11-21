@@ -18,3 +18,13 @@ router = APIRouter(
 #   -----------------------------------------------------------
 #                        CREAR UNA TAREA 
 # ------------------------------------------------------------
+@router.post("/", response_model=Task)
+def create_task(task_data: TaskCreate, db : Session = Depends(get_db)):
+
+    #Verficamos  si el usuario dueno  de la tarea existe 
+       user = db.query(UserModel).filter(UserModel.id  == task_data.id_usuario).first()
+
+       if not user:
+              raise HTTPException(status_code=404, detail = "El usuario no existe , no se puede crear la tarea")
+       
+       
