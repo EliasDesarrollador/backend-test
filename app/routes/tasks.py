@@ -33,6 +33,13 @@ def create_task(task_data: TaskCreate, db : Session = Depends(get_db)):
        new_taks = TaskModel(
               titulo= task_data.titulo, 
               descripcion= task_data.descripcion, 
-              estado= task_data..estado,
+              estado= task_data.estado,
               id_usuario=task_data.id_usuario
     )
+       
+       #Guardamos en la BD 
+       db.add(new_taks)
+       db.commit()
+       db.refresh(new_taks)
+
+       return new_taks
