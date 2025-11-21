@@ -27,4 +27,12 @@ def create_task(task_data: TaskCreate, db : Session = Depends(get_db)):
        if not user:
               raise HTTPException(status_code=404, detail = "El usuario no existe , no se puede crear la tarea")
        
+
+       #Creamos la tarea 
        
+       new_taks = TaskModel(
+              titulo= task_data.titulo, 
+              descripcion= task_data.descripcion, 
+              estado= task_data..estado,
+              id_usuario=task_data.id_usuario
+    )
