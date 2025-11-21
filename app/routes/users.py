@@ -60,3 +60,15 @@ def get_user(user_id: int, db: Session  = Depend(get_db)):
        return users
 
 
+#   -----------------------------------------------------------
+#                      OBTENER  USUARIO  POR ID     
+# ------------------------------------------------------------
+
+@router.get("/{user_id}" ,  response_model=User)
+def get_user(user_id: int , db : Session = Depends(get_db)) :
+      #Busca el usuario por ID 
+      user = db.query(UserModel).filter(UserModel.id == user_Id).first()
+
+      if not user:
+            raise HTTPException(status_code=404, details = "Usuario  no encontrado ") 
+            return user 
